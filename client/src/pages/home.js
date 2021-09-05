@@ -35,7 +35,7 @@ export default function Home() {
           <div className="row align-items-start">
             <div className="col-lg-8 m-15px-tb">
               <div className="row">
-                {posts.reverse().map((p) => (
+                {posts.map((p) => (
                   <div className="col-sm-6" key={p._id}>
                     <div className="blog-grid">
                       <div className="blog-img">
@@ -78,7 +78,7 @@ export default function Home() {
                   <div className="latest-post-aside media">
                     <div className="lpa-left media-body">
                       <div className="lpa-title">
-                        {recentPost.reverse().map((r) => (
+                        {recentPost.map((r) => (
                           <h5 key={r._id} style={{ padding: "10px" }}>
                             <Link to={`/posts/${r._id}`}>{r.title}</Link>
                           </h5>
