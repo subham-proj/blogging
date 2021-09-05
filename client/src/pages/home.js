@@ -23,6 +23,9 @@ export default function Home() {
     recentPost.push(posts[i]);
   }
 
+  console.log(posts);
+  console.log(recentPost);
+
   return (
     <div>
       <Cover />
