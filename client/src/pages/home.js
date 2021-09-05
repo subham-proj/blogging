@@ -5,8 +5,6 @@ import Cover from "../components/cover";
 import { Link, useLocation } from "react-router-dom";
 import Footer from "../components/footer";
 
-const api = process.env.REACT_APP_API_KEY;
-
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
@@ -15,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(api + "/posts" + search);
+      const response = await axios.get("/api/posts" + search);
       // console.log(response.data);
       setPosts(response.data);
     }

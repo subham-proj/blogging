@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Card, Container, Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
-const api = process.env.REACT_APP_API_KEY;
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -16,10 +15,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const user = await axios.get(api + "/users");
+    const user = await axios.get("/api/users");
 
     for (var x in user.data) {
-      const eachUser = await axios.get(api + "/users/" + x);
+      const eachUser = await axios.get("/api/users/" + x);
 
       if (eachUser.data.username === username) {
         setUserExist(true);
@@ -39,7 +38,7 @@ export default function Register() {
         setIsNotValid(true);
       } else {
         try {
-          const res = await axios.post(api + "/auth/register", {
+          const res = await axios.post("/api/auth/register", {
             username: username,
             email: email,
             password: password,

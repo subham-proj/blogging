@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Context } from "../context/context";
 import axios from "axios";
-const api = process.env.REACT_APP_API_KEY;
 
 export default function Profile() {
   const [username, setUsername] = useState("");
@@ -15,7 +14,7 @@ export default function Profile() {
     dispatch({ type: "UPDATE_START" });
 
     try {
-      const res = await axios.put(api + "/users/" + user._id, {
+      const res = await axios.put("/api/users/" + user._id, {
         userId: user._id,
         username: username ? username : user.username,
         email: email ? email : user.email,

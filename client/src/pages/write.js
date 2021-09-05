@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Card, Container, Form, Button } from "react-bootstrap";
 import { Context } from "../context/context";
-const api = process.env.REACT_APP_API_KEY;
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -19,7 +18,7 @@ export default function Write() {
     };
 
     try {
-      const res = await axios.post(api + "/posts", newPost);
+      const res = await axios.post( "/api/posts", newPost);
       window.location.replace("/posts/" + res.data._id);
     } catch (err) {}
   };

@@ -6,7 +6,6 @@ import { FiEdit } from "react-icons/fi";
 import { Context } from "../context/context";
 
 import { Form, Button } from "react-bootstrap";
-const api = process.env.REACT_APP_API_KEY;
 
 export default function SinglePost() {
   const location = useLocation();
@@ -20,7 +19,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(api + "/posts/" + path);
+      const res = await axios.get( "/api/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDescription(res.data.description);
@@ -33,7 +32,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(api + "/posts");
+      const res = await axios.get("/api/posts");
       setTemp(res.data);
     }
     fetchData();
@@ -46,7 +45,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${api}/posts/${path}`, {
+      await axios.delete(`/api/posts/${path}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -55,7 +54,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`${api}/posts/${path}`, {
+      await axios.put(`/api/posts/${path}`, {
         username: user.username,
         title: title,
         description: description,
