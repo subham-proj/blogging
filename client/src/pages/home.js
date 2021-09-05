@@ -2,23 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
 import Cover from "../components/cover";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Footer from "../components/footer";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
-  const { search } = useLocation();
-  // console.log(location);
-
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get("/api/posts" + search);
-      // console.log(response.data);
+      const response = await axios.get("/api/posts");
       setPosts(response.data);
     }
     fetchData();
-  }, [search]);
+  }, []);
 
   let recentPost = [];
 
@@ -26,7 +22,6 @@ export default function Home() {
     recentPost.push(posts[i]);
   }
 
-  // console.log(api);
   return (
     <div>
       <Cover />
@@ -35,7 +30,7 @@ export default function Home() {
           <div className="row align-items-start">
             <div className="col-lg-8 m-15px-tb">
               <div className="row">
-                {posts.map((p) => (
+                {posts.reverse().map((p) => (
                   <div className="col-sm-6" key={p._id}>
                     <div className="blog-grid">
                       <div className="blog-img">
@@ -78,7 +73,7 @@ export default function Home() {
                   <div className="latest-post-aside media">
                     <div className="lpa-left media-body">
                       <div className="lpa-title">
-                        {recentPost.map((r) => (
+                        {recentPost.reverse().map((r) => (
                           <h5 key={r._id} style={{ padding: "10px" }}>
                             <Link to={`/posts/${r._id}`}>{r.title}</Link>
                           </h5>
