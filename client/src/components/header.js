@@ -37,17 +37,7 @@ export default function Header() {
               >
                 Home
               </NavLink>
-              <NavLink activeClassName="active" to="/about" className="navLink">
-                About
-              </NavLink>
 
-              <NavLink
-                activeClassName="active"
-                to="/contact"
-                className="navLink"
-              >
-                Contact
-              </NavLink>
               <NavLink activeClassName="active" to="/write" className="navLink">
                 Write
               </NavLink>

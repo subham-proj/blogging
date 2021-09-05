@@ -10,25 +10,11 @@ import userRoute from "./routes/usersRoute.js";
 import postRoute from "./routes/postsRoute.js";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 
 app.use(express.json());
 app.use(cors());
-const __dirname = path.resolve();
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "./client/build")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "./client/build/index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running....");
-  });
-}
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -44,7 +30,23 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 
+const __dirname = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./client/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "./client/build/index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
+
 // Starting Port
+const PORT = process.env.PORT || 5000;
+
 app.listen(
   PORT,
   console.log(
