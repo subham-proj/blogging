@@ -1,0 +1,164 @@
+/* To avoid overflow in small devices */
+@media only screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  .container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  margin-right: 30px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.nav > .active {
+  color: #023e8a;
+}
+.nav > a {
+  text-decoration: none;
+  color: #48cae4;
+}
+
+.nav > a:hover {
+  color: #023e8a;
+}
+
+.navOptional {
+  color: #023e8a;
+}
+
+/* Cover page */
+
+.background {
+  background: url("./assets/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
+
+.coverpage {
+  padding-top: 200px;
+  margin: auto;
+  color: #068ea3;
+}
+
+.coverPic > img {
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+
+  margin: auto;
+}
+
+.blog_card_home {
+  padding-bottom: 50px;
+}
+
+@media screen and (min-device-width: 0px) and (max-device-width: 999px) {
+  .coverPic > img {
+    padding-top: 40px !important ;
+  }
+
+  .coverpage {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (min-device-width: 0px) and (max-device-width: 565px) {
+  .coverpage {
+    padding-top: 100px;
+  }
+
+  .coverPic > img {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 990px) {
+  .blog_card_home {
+    padding-top: 150px;
+  }
+}
+
+@media screen and (min-device-width: 570px) and (max-device-width: 767px) {
+  .blog_card_home {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (min-device-width: 0px) and (max-device-width: 361px) {
+  .blog_card_home {
+    padding-top: 100px;
+  }
+}
+.card {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.login_form {
+  padding-top: 100px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form_submit {
+  padding: 20px;
+}
+
+.login_form_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_card {
+  width: 22rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+.write_labels {
+  font-size: x-large;
+}
+
+.navLink_username {
+  color: red;
+}
+
+/* Footer styling */
+.footer {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  height: auto;
+}
+
+.footerLayout {
+  padding-top: 50px;
+}
+
+.footer a {
+  color: white;
+}
